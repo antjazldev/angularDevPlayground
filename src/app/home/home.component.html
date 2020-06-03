@@ -1,0 +1,23 @@
+<div *ngIf="loading">
+  Loading...
+</div>
+<div *ngIf="error">
+  Error :(
+</div>
+<div *ngIf="resul">
+
+  <p>{{resul | async}}</p>
+
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Quieres saber que tan limpio esta tu hotel antes de llevar a tus seres queridos? Estas en el lugar correcto!</mat-card-title>
+    
+    </mat-card-header>
+    <img mat-card-image src="assets/img/hotel.jpg" alt="Hoteles">
+   
+  </mat-card>
+</div>
