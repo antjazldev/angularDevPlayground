@@ -66,6 +66,17 @@ export type HelloQuery = (
   & Pick<Query, 'hello'>
 );
 
+export type RegisterMutationVariables = {
+  email: Scalars['String'];
+  password: Scalars['String'];
+};
+
+
+export type RegisterMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'resigter'>
+);
+
 export const HelloDocument = gql`
     query Hello {
   hello
@@ -77,5 +88,18 @@ export const HelloDocument = gql`
   })
   export class HelloGQL extends Apollo.Query<HelloQuery, HelloQueryVariables> {
     document = HelloDocument;
+    
+  }
+export const RegisterDocument = gql`
+    mutation Register($email: String!, $password: String!) {
+  resigter(email: $email, password: $password)
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class RegisterGQL extends Apollo.Mutation<RegisterMutation, RegisterMutationVariables> {
+    document = RegisterDocument;
     
   }

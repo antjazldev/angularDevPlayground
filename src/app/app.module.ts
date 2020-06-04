@@ -19,6 +19,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ApolloModule, APOLLO_OPTIONS } from "apollo-angular";
 import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { InMemoryCache } from "apollo-cache-inmemory";
     MatMenuModule,
     HttpClientModule,
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: APOLLO_OPTIONS,

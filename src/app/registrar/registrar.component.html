@@ -3,19 +3,24 @@
        <mat-toolbar color="primary">Registrar</mat-toolbar>
 
 
-        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
-            <mat-form-field>
-              <mat-label>Usuario</mat-label>
-              <input matInput placeholder="Usuario">
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
+          <mat-form-field class="form-group">
+              <mat-label>Correo</mat-label>
+              <input type="email" matInput placeholder="Usuario"  formControlName="userMail">
+                <div *ngIf="getControls.userMail.errors?.required && submitted" class="c-error">Email is required</div>
+                <div *ngIf="getControls.userMail.errors?.pattern" class="c-error">Ingrese un correo electrónico válido !</div>
+            
             </mat-form-field>
+            
           
             <mat-form-field>
               <mat-label>Password</mat-label>
-              <input matInput type="password" placeholder="Password">
+              <input matInput type="password" placeholder="Password"  formControlName="password">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Reinsertar Password</mat-label>
-                <input matInput type="password" placeholder="Password">
+                <input matInput type="password" placeholder="Password" formControlName="confirmPassword">
+                <div *ngIf="getControls.confirmPassword.errors?.mustMatch" class="c-error" fxLayoutAlign="center center">Passwords deben ser iguales</div>
               </mat-form-field>
             <button mat-raised-button type="submit">Registrar</button>
 
